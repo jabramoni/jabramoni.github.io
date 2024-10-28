@@ -1,0 +1,69 @@
+<script>
+
+    let diff = new Date().getTimezoneOffset()/60;
+
+    var t13= a(13);
+    var t16=a(16);
+    var t18=a(18);
+    var t19=a(19);
+    var t22=a(22);
+
+
+   document.getElementById("9").innerHTML = t13;
+   document.getElementById("13").innerHTML = t13;
+   document.getElementById("21").innerHTML = t13;
+   document.getElementById("27").innerHTML = t13;
+   document.getElementById("31").innerHTML = t13;
+   document.getElementById("37").innerHTML = t13;
+   document.getElementById("39").innerHTML = t13;
+
+   document.getElementById("3").innerHTML = t16;
+   document.getElementById("7").innerHTML = t16;
+   document.getElementById("15").innerHTML = t16;
+   document.getElementById("19").innerHTML = t16;
+   document.getElementById("25").innerHTML = t16;
+   document.getElementById("33").innerHTML = t16;
+   document.getElementById("43").innerHTML = t16;
+   document.getElementById("45").innerHTML = t16;
+
+   document.getElementById("5").innerHTML = t18;
+   document.getElementById("6").innerHTML = t18;
+   document.getElementById("23").innerHTML = t18;
+   document.getElementById("24").innerHTML = t18;
+   document.getElementById("35").innerHTML = t18;
+   document.getElementById("36").innerHTML = t18;
+   document.getElementById("47").innerHTML = t18;
+   document.getElementById("48").innerHTML = t18;
+
+   document.getElementById("1").innerHTML = t19;
+   document.getElementById("2").innerHTML = t19;
+   document.getElementById("4").innerHTML = t19;
+   document.getElementById("14").innerHTML = t19;
+   document.getElementById("22").innerHTML = t19;
+   document.getElementById("26").innerHTML = t19;
+   document.getElementById("34").innerHTML = t19;
+   document.getElementById("40").innerHTML = t19;
+   document.getElementById("44").innerHTML = t19;
+
+   document.getElementById("8").innerHTML = t22;
+   document.getElementById("10").innerHTML = t22;
+   document.getElementById("11").innerHTML = t22;
+   document.getElementById("12").innerHTML = t22;
+   document.getElementById("16").innerHTML = t22;
+   document.getElementById("17").innerHTML = t22;
+   document.getElementById("18").innerHTML = t22;
+   document.getElementById("20").innerHTML = t22;
+   document.getElementById("28").innerHTML = t22;
+   document.getElementById("29").innerHTML = t22;
+   document.getElementById("30").innerHTML = t22;
+   document.getElementById("32").innerHTML = t22;
+   document.getElementById("38").innerHTML = t22;
+   document.getElementById("41").innerHTML = t22;
+   document.getElementById("42").innerHTML = t22;
+   document.getElementById("46").innerHTML = t22;
+
+   function a(b){
+      return (b-3-diff) +":00";
+   }
+
+</script>

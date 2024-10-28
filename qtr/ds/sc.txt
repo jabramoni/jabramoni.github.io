@@ -1,0 +1,27 @@
+<script>
+
+    let diff = new Date().getTimezoneOffset()/60;
+
+    var t18=a(18);
+    var t22=a(22);
+
+    var aa18 = document.querySelectorAll('[aa="18"]');
+    for (var i = 0; i < aa18.length; i++)
+      aa18[i].innerHTML = t18;
+
+    var aa22 = document.querySelectorAll('[aa="22"]');
+    for (var i = 0; i < aa22.length; i++)
+      aa22[i].innerHTML = t22;
+
+
+   function a(b){
+      return (b-3-diff) +":00";
+   }
+
+   //-------------------------------------
+
+
+
+
+
+</script>

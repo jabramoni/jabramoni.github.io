@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="ar"  dir="rtl">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>تحديث التطبيق</title>
+    <link rel="stylesheet" href="a.css" media="screen">
+<link rel="stylesheet" href="uh.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="a.js" defer=""></script>
+    
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tajawal:200,300,400,500,700,800,900">
+    
+    
+    
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "اكشن TV",
+		"url": "index.html"
+}</script>
+    <meta property="og:title" content="تحديث التطبيق">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#478ac9">
+    <link rel="canonical" href="index.html">
+    <meta property="og:url" content="index.html">
+  <style>
+/* The MIT License (MIT) Copyright (c) 2014 Toby */
+/* demo only */
+.flex { display: flex; }
+.align-center { justify-content: center; }
+.align-vert,.align-vert.align-center { align-items: center; }
+/* end demo */
+
+.modal { display: none; }
+.modal--show,
+.modal--hide { display: flex; } /* classes fired by js for animation control */
+
+/* This is on the wrapper for the whole modal */
+.modal--align {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.modal__container {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  padding: 20px 20px 0px 20px;
+  margin: 12px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+/* As there is no href to avoid the hash being added to the URL when clicked we add a pointer */
+/* This 'x' is hidden from screen readers as there is an accessible close button in the modal */
+.modal__close--x:hover {
+  cursor: pointer;
+}
+
+/* Animations */
+/* Open */
+.modal.modal--show {
+  animation: modal-open 0.3s;
+}
+
+@keyframes modal-open {
+  0%    { opacity: 0; }
+  100%  { opacity: 1; }
+}
+
+/* Close */
+.modal.modal--hide {
+  animation: modal-close 0.3s;
+}
+
+@keyframes modal-close {
+  0%    { opacity: 1; }
+  100%  { opacity: 0; }
+}
+
+.modal__close--x {
+  position: absolute;
+  line-height: 19px;
+  top: 10px;
+  right: 10px; 
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  font-family: "Open Sans", "Arial","sans-serif";
+  opacity: .2;
+}
+
+.modal {
+  text-align: center;
+}
+</style>
+
+<style>
+    .modal__container [class*="section"] {
+        display: block !important;
+        overflow: hidden;
+    }
+    .modal__close--x {
+        z-index: 1;
+    }
+</style>
+
+<script>
+var buttonSelector = 'a[href*="-popup"]',
+    parseId = function (href) { return href.replace('-popup', '').replace('#', ''); };
+window.onload = function () {
+    $('body').on('click', buttonSelector, function (event) {
+        var id = parseId(event.currentTarget.getAttribute('href'));
+
+        var modalId = 'modal-' + id;
+        if ($('#' + modalId).length === 0) {
+            $('body').append('<div class="flex align-center align-vert modal modal--align" id="' + modalId + '">' +
+                '    <div class="modal__container">' +
+                '        <span class="modal__close modal__close--x" aria-hidden="true">×</span>' +
+                '        ' + document.getElementById(id).outerHTML +
+                '    </div>' +
+                '</div>');      
+        }
+        $('#' + modalId).addClass('modal--show');
+    });
+
+
+    var closeModal = function (modal) {
+        modal.removeClass('modal--show');
+        modal.addClass('modal--hide');
+
+        var afterAnimation = function () {
+            modal.removeClass('modal--hide');   
+        };
+
+        // This listens for the CSS animations to finish and then hides the modal
+        modal[0].addEventListener("webkitAnimationEnd", afterAnimation, false);
+        modal[0].addEventListener("oAnimationEnd", afterAnimation, false);
+        modal[0].addEventListener("msAnimationEnd", afterAnimation, false);
+        modal[0].addEventListener("animationend", afterAnimation, false);
+        setTimeout(afterAnimation, 400);
+    }
+
+    // Close the modal with any element with class 'modal__close'
+    $('body').on('click', '.modal__close', function (e) {
+        closeModal($(e.currentTarget).closest('.modal'));
+    });
+
+
+    // Click outside of the modal and close it
+    window.onclick = function (e) {
+        if ($(e.target).is('.modal')) {
+            closeModal($(e.target));
+        }
+    }
+
+    // Use the escape key to close modal
+    document.onkeyup = function (e) {
+        e = e || window.event;
+        if (e.keyCode == 27 && $('.modal--show').length === 1) {
+            closeModal($('.modal--show'));
+        }
+    }
+};
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    var buttons = document.querySelectorAll(buttonSelector);
+    for (var i = 0; i < buttons.length; i++) {
+        var section = document.getElementById(parseId(buttons[i].getAttribute('href')));
+        if (section) {
+            section.style.display = 'none';
+        }       
+    }
+});
+</script></head>
+  <body class="u-body u-gradient" style="background-image: linear-gradient(45deg, #e16ea5, #7a5fda);"><header class="u-align-center u-clearfix u-header" id="sec-8c2d"><div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-default u-text-white u-title u-text-1">تحديث تطبيق اكشن TV<br>
+        </h1>
+        <h3 class="u-text u-text-default u-text-white u-text-2">ننوه أنه يجب حذف النسخة الحالية من تطبيق اكشن TV قبل تثبيت النسخة الجديدة</h3>
+        <h3 class="u-text u-text-default u-text-white u-text-3">لن يتم فقدان سجل مشاهداتك وإعداداتك إذا كنت مفعل النسخ الإحتياطي</h3>
+        <h4 class="u-text u-text-4">
+          <a href="backup_check/index.html" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-custom-color-6 u-btn-1" target="_blank">(اضغط هنا لمعرفة كيفية التأكد من تفعيل النسخ الإحتياطي)</a>
+        </h4>
+        <h1 class="u-text u-text-body-alt-color u-text-default u-text-5">ننوه أيضاً أنه إذا قمت بإلغاء تثبيت النسخة الحالية​ سيتم فقدان جميع الفيديوهات التي حملتها بطريقة التحميل الداخلي</h1>
+        <h4 class="u-text u-text-6">
+          <a href="downloads_check/index.html" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-custom-color-6 u-btn-2" target="_blank">(اضغط هنا للتأكد إذا كان لديك فيديوهات محملة بطريقة التحميل الداخلي)</a>
+        </h4>
+      </div></header>
+    <section class="u-clearfix u-section-1" id="sec-1792">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-group u-opacity u-opacity-50 u-radius-20 u-shape-round u-white u-group-1">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <h1 class="u-align-center u-text u-text-1">لن تستطيع استخدام النسخة القديمة بعد الآن. إذا كان لديك فيديوهات محملة بطريقة التحميل الداخلي ولا تريد فقدانها يمكنك تأجيل تحديث التطبيق لحين الانتهاء من مشاهدة الفيديوهات المحملة، بعدها قم بتحديث التطبيق لكن طوال هذه الفترة لا يمكنك مشاهدة أي فيلم أو مسلسل إلا التي تم تحميلها </h1>
+          </div>
+        </div>
+        <h2 class="u-text u-text-body-alt-color u-text-default u-text-2">للبدء بتحديث التطبيق..</h2>
+        <h3 class="u-text u-text-default u-text-grey-5 u-text-3">1- ألغ تثبيت النسخة القديمة<br>2- حمل التطبيق من (<a href="https://www.mediafire.com/download/7hygg9pw7momb3p" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-custom-color-9 u-btn-1" target="_blank">رابط التحميل</a>)
+        </h3>
+      </div>
+    </section>
+    
+    
+    
+    
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-footer" id="sec-cc2d"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">Milon Team 2021</p>
+      </div></footer>
+  </body>
+</html>
